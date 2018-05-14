@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="mui.min.css">
+    <link rel="stylesheet" href="scroll.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=yes" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <style>
+        .container{
+            text-align: center;
+            padding-top: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+</div>
+<div class="number-show">
+    <span>您选择的是</span>
+    <p class="selected">
+    </p>
+    <video src="https://182-131-6-121.nhost.00cdn.com/a002.live.xunlei.com/live_panda/ca9b51cc36c76bf8a18e0b426db37beb.flv" type="application/vnd.apple.mpegurl"></video>
+</div>
+</body>
+<script src="mui.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="scroll.js"></script>
+<script>
+    $(function () {
+        scrollInit('.container',3,function (data) { //初始化， 传入DOM节点,scroll数量,callback回调
+            console.log(data);
+            var tpl = '';
+            $.each(data,function (k,v) {
+                tpl= tpl+'<span>'+v+'</span>'
+            })
+            $('.selected').html(tpl);
+        })
+    })
+</script>
+</html>
