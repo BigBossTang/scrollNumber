@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="mui.min.css">
     <link rel="stylesheet" href="scroll.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=yes" />
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <style>
         .container{
             text-align: center;
@@ -22,7 +22,6 @@
     <span>您选择的是</span>
     <p class="selected">
     </p>
-    <video src="https://182-131-6-121.nhost.00cdn.com/a002.live.xunlei.com/live_panda/ca9b51cc36c76bf8a18e0b426db37beb.flv" type="application/vnd.apple.mpegurl"></video>
 </div>
 </body>
 <script src="mui.min.js"></script>
@@ -30,7 +29,15 @@
 <script src="scroll.js"></script>
 <script>
     $(function () {
-        scrollInit('.container',3,function (data) { //初始化， 传入DOM节点,scroll数量,callback回调
+        var num = [1,2,3,4,5,6,7,8,9,0],
+            words= ['-','双','单'],
+            words2=['-','小','大'];
+        scrollInit({
+            node:'.container', //挂载的DOM节点，必传
+            words:num, //传入的拨动字符，数组类型，不传默认1234567890 , 居中的为数组第一个元素
+            number:3, //拨动条的数量，不传则默认3条
+            height:50 // CSS设置的scroll-item的高度,不传默认50
+        },function (data) { //callback回调返回选中的字符数组
             console.log(data);
             var tpl = '';
             $.each(data,function (k,v) {
